@@ -1,1 +1,2 @@
-sh -c "echo $*"
+#!/bin/sh
+echo $1

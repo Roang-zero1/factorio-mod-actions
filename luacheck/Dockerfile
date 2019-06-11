@@ -25,6 +25,8 @@ FROM base
 
 RUN apk add --no-cache jq git zip
 
+RUN adduser factorio -D
+
 COPY --from=luarocks /usr/local/share/lua /usr/local/share
 COPY --from=luarocks /usr/local/lib/lua /usr/local/lib
 
@@ -35,6 +37,8 @@ ENV LUA_PATH_5_3 \
 /usr/local/lib/lua/5.3/?/init.lua;\
 ./?.lua
 
-ADD clone.sh /clone.sh
 ADD entrypoint.sh /entrypoint.sh
+
+USER factorio
+
 ENTRYPOINT ["/entrypoint.sh"]

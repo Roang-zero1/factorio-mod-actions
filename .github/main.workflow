@@ -5,5 +5,7 @@ workflow "New workflow" {
 
 action "luacheck" {
   uses = "./luacheck"
-  args = "Test"
+  env = {
+    LUACHECKRC_URL = ""
+  }
 }

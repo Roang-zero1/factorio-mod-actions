@@ -53,6 +53,6 @@ zip -rq $PACKAGE_FILE $PACKAGE_FULL_NAME
 cd $ORIGIN
 mkdir dist/
 
-cp $PACKAGE_FILE dist
+cp $BUILD_DIR/$PACKAGE_FILE dist
 
 echo "$PACKAGE_FILE ready at dist/$PACKAGE_FILE"

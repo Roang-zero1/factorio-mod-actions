@@ -5,6 +5,11 @@ export PACKAGE_VERSION=$(jq -r .version info.json)
 export PACKAGE_FULL_NAME=$PACKAGE_NAME\_$PACKAGE_VERSION
 export PACKAGE_FILE="$PACKAGE_FULL_NAME.zip"
 
+if ! grep "\"$PACKAGE_VERSION\"" changelog.txt; then
+  echo "ERROR: Changelog is missing" 1>&2
+  exit 1
+fi
+
 export DIST_DIR=dist
 
 export FILE_PATH=$DIST_DIR/$PACKAGE_FILE

@@ -19,8 +19,6 @@ FROM base
 
 RUN apk add --no-cache jq git zip curl
 
-RUN adduser factorio -D
-
 COPY --from=luarocks /usr/local/bin /usr/local/bin
 COPY --from=luarocks /usr/local/lib/lua /usr/local/lib/lua
 COPY --from=luarocks /usr/local/lib/luarocks /usr/local/lib/luarocks
@@ -32,7 +30,5 @@ ENV LUA_PATH_5_3 \
 /usr/local/lib/lua/5.3/?.lua;\
 /usr/local/lib/lua/5.3/?/init.lua;\
 ./?.lua
-
-USER factorio
 
 CMD [ "luacheck" ]

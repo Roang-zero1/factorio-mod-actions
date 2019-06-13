@@ -10,4 +10,9 @@ docker images --format "{{.Repository}}:{{.Tag}}" | awk '/roangzero1/ && !/none/
 
 ## Acknowledgements
 
-Files based on [akornatskyy/docker-library/](https://github.com/akornatskyy/docker-library/)
+Docker files for Lua based on [akornatskyy/docker-library/](https://github.com/akornatskyy/docker-library/)
+
+Factorio build scripts based on:
+
+* [Nexelas Mods](https://github.com/Nexela)
+* [GitHub Action to automatically publish to the Factorio mod portal](https://github.com/shanemadden/factorio-mod-portal-publish)

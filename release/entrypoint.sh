@@ -17,8 +17,13 @@ if ! [[ "${PACKAGE_VERSION}" == "${TAG}" ]]; then
     exit 1
 fi
 
-if ! grep "\"$PACKAGE_VERSION\"" changelog.txt; then
-  echo "ERROR: Changelog is missing" 1>&2
+if ! grep -q "\"$PACKAGE_VERSION\"" changelog.json; then
+  echo "ERROR: Changelog is missing." 1>&2
+  exit 1
+fi
+
+if ! grep -q "$PACKAGE_VERSION" changelog.txt; then
+  echo "ERROR: Changelog was not compiled." 1>&2
   exit 1
 fi
 

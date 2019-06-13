@@ -2,7 +2,8 @@ workflow "New workflow" {
   on       = "push"
 
   resolves = [
-    "release"
+    "release",
+    "release-github",
   ]
 }
 
@@ -41,5 +42,17 @@ action "release" {
   secrets = [
     "FACTORIO_USER",
     "FACTORIO_PASSWORD"
+  ]
+}
+
+action "release-github" {
+  uses    = "Roang-zero1/factorio-mod-actions/release-github@master"
+
+  needs   = [
+    "Tag Filter"
+  ]
+
+  secrets = [
+    "GITHUB_TOKEN"
   ]
 }

@@ -22,9 +22,9 @@ action "package" {
   ]
 }
 
-action "Release Filter" {
+action "Tag Filter" {
   uses  = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
-  args  = "branch release"
+  args  = "tag"
 
   needs = [
     "package"
@@ -35,7 +35,7 @@ action "release" {
   uses    = "Roang-zero1/factorio-mod-actions/release@master"
 
   needs   = [
-    "Release Filter"
+    "Tag Filter"
   ]
 
   secrets = [

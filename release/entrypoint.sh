@@ -1,9 +1,21 @@
 #!/bin/sh
 
+TAG=$(echo ${GITHUB_REF} | grep tags | grep -o "[^/]*$")
+
+if ! echo "${TAG}" | grep -qE '^\d+\.\d+\.\d+$'; then
+    echo "Bad version in tag, needs to be %u.%u.%u" 1>&2
+    exit 1
+fi
+
 export PACKAGE_NAME=$(jq -r .name info.json)
 export PACKAGE_VERSION=$(jq -r .version info.json)
 export PACKAGE_FULL_NAME=$PACKAGE_NAME\_$PACKAGE_VERSION
 export PACKAGE_FILE="$PACKAGE_FULL_NAME.zip"
+
+if ! [[ "${PACKAGE_VERSION}" == "${TAG}" ]]; then
+    echo "Tag version (${TAG}) doesn't match info.json version (${PACKAGE_VERSION}) (or info.json is invalid)." 1>&2
+    exit 1
+fi
 
 if ! grep "\"$PACKAGE_VERSION\"" changelog.txt; then
   echo "ERROR: Changelog is missing" 1>&2

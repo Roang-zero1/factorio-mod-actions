@@ -16,3 +16,4 @@ Factorio build scripts based on:
 
 * [Nexelas Mods](https://github.com/Nexela)
 * [GitHub Action to automatically publish to the Factorio mod portal](https://github.com/shanemadden/factorio-mod-portal-publish)
+* Shane Madden (Nymbia)

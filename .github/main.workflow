@@ -16,8 +16,7 @@ action "luacheck" {
 }
 
 action "package" {
-  uses  = "Roang-zero1/factorio-mod-actions/package@master"
-
+  uses  = "Roang-zero1/factorio-mod-package@master"
   needs = [
     "luacheck"
   ]

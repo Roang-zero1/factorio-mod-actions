@@ -8,7 +8,7 @@ workflow "Check & Publish" {
 }
 
 action "luacheck" {
-  uses = "Roang-zero1/factorio-mod-actions/luacheck@master"
+  uses = "Roang-zero1/factorio-mod-luacheck@master"
 
   env  = {
     LUACHECKRC_URL = "https://raw.githubusercontent.com/Nexela/Factorio-luacheckrc/0.17/.luacheckrc"

@@ -4,3 +4,6 @@
 [submodule "luacheck"]
 	path = luacheck
 	url = git@github.com:Roang-zero1/factorio-mod-luacheck.git
+[submodule "factorio-release"]
+	path = factorio-release
+	url = git@github.com:Roang-zero1/factorio-create-release-action.git

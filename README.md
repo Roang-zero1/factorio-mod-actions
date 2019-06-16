@@ -2,6 +2,10 @@
 
 This repository contains actions to test and deploy your Factorio mod with GitHub Actions.
 
+## Sample Workflow
+
+A [sample workflow](sample/main.workflow) for checking and releasing a Factorio mod is included in this repository.
+
 ## Deploy images
 
 ```bash

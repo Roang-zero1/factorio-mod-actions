@@ -4,6 +4,3 @@
 [submodule "luacheck"]
 	path = luacheck
 	url = git@github.com:Roang-zero1/factorio-mod-luacheck.git
-[submodule "release-github"]
-	path = release-github
-	url = git@github.com:Roang-zero1/factorio-mod-release-github.git

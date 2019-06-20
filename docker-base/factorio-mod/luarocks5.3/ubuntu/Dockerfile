@@ -6,6 +6,7 @@ LABEL "maintainer"="Roang_zero1 <lucas@brandstaetter.tech>"
 
 FROM base as luarocks
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         git \

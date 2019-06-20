@@ -7,6 +7,9 @@ LABEL "maintainer"="Roang_zero1 <lucas@brandstaetter.tech>"
 
 ENV LUAROCKS_VERSION=3.1.2
 
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
+# hadolint ignore=DL3003
 RUN set -ex \
     \
     && apk add --no-cache \
@@ -24,11 +27,12 @@ RUN set -ex \
     && wget https://luarocks.github.io/luarocks/releases/luarocks-${LUAROCKS_VERSION}.tar.gz \
         -O - | tar -xzf - \
     \
-    && cd luarocks-${LUAROCKS_VERSION} \
-    && ./configure --with-lua=/usr/local \
-    && make build \
-    && make install \
-    && cd .. \
+    && ( \
+      cd luarocks-${LUAROCKS_VERSION}; \
+      ./configure --with-lua=/usr/local \
+      && make build \
+      && make install \
+    ) \
     && rm -rf luarocks-${LUAROCKS_VERSION} \
     \
     && apk del .build-deps

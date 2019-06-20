@@ -6,9 +6,9 @@ LABEL "maintainer"="Roang_zero1 <lucas@brandstaetter.tech>"
 
 FROM base as luarocks
 
-RUN apk add --no-cache git zip curl gcc musl-dev
-
-RUN luarocks install luacheck
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+RUN apk add --no-cache git zip curl gcc musl-dev \
+    && luarocks install luacheck
 
 FROM base
 

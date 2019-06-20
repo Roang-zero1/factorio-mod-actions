@@ -5,7 +5,6 @@ LABEL "repository"="https://github.com/Roang-zero1/factorio-mod-actions"
 LABEL "homepage"="https://github.com/Roang-zero1/factorio-mod-actions"
 LABEL "maintainer"="Roang_zero1 <lucas@brandstaetter.tech>"
 
-
 ENV LUAROCKS_VERSION=3.1.2
 
 RUN set -ex \

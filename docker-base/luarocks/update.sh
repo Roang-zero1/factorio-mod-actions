@@ -5,7 +5,8 @@ set -eo pipefail
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 versions=( */ )
 for version in "${versions[@]%/}" ; do
-  for os in alpine ; do
+  oses=( $(ls ${version}) )
+  for os in "${oses[@]}" ; do
     image=roangzero1/luarocks:${version}-${os}
     echo building $image ...
     docker build -q -t ${image} ${version}/${os}

@@ -1,9 +1,9 @@
 [submodule "package"]
-	path = package
+	path = factorio-mod-package
 	url = git@github.com:Roang-zero1/factorio-mod-package.git
 [submodule "luacheck"]
-	path = luacheck
+	path = factorio-mod-luacheck
 	url = git@github.com:Roang-zero1/factorio-mod-luacheck.git
 [submodule "factorio-release"]
-	path = factorio-release
+	path = factorio-create-release-action
 	url = git@github.com:Roang-zero1/factorio-create-release-action.git

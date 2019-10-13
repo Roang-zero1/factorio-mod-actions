@@ -1,0 +1,14 @@
+{
+  "spellright.language": ["en_GB"],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "git-commit",
+    "shellscript"
+  ],
+  "editor.formatOnSave": true,
+  "[dockerfile]": {
+    "editor.formatOnSave": false
+  }
+}

@@ -21,7 +21,7 @@ for repository_config in "${repositories[@]}"; do
       image=roangzero1/${repository}:${version}-${os}
       echo "building $image ..."
       docker build -q -t ${image} -t docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/$repository:latest ${version}/${os}
-      docker run --rm ${image} ${repository_config#*:} > /dev/null
+      docker run --rm ${image} ${repository_config#*:} >/dev/null
     done
   done
 done

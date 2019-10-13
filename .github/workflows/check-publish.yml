@@ -29,5 +29,5 @@ jobs:
         run: |
           ./docker-base/update.sh
         env:
-          PUBLISH_IMAGE: ${{github.ref == 'master'}}
+          PUBLISH_IMAGE: ${{github.ref == 'refs/heads/master'}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

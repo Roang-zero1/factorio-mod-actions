@@ -29,7 +29,7 @@ done
 echo "Currently available images:"
 docker image ls
 
-if [ $PUBLISH_IMAGE -eq 'true ']; then
+if [ $PUBLISH_IMAGE == "true" ]; then
   echo "Publishing images to GPR"
   docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
   for repository_config in "${repositories[@]}"; do

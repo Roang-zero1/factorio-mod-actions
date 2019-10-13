@@ -29,9 +29,13 @@ done
 echo "Currently available images:"
 docker image ls
 
-echo "Publishing images to GPR"
-docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
-for repository_config in "${repositories[@]}"; do
-  repository=${repository_config%%:*}
-  docker push docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/$repository:latest
-done
+if [ $PUBLISH_IMAGE -eq 'true ']; then
+  echo "Publishing images to GPR"
+  docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
+  for repository_config in "${repositories[@]}"; do
+    repository=${repository_config%%:*}
+    docker push docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/$repository:latest
+  done
+else
+  echo "Not publishing images"
+fi

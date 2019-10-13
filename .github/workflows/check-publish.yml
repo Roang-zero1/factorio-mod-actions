@@ -26,3 +26,5 @@ jobs:
       - name: Build & Publish
         run: |
           ./docker-base/update.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,8 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
-base="$(dirname "$(readlink -f "$BASH_SOURCE")")"
+DOCKER_BASE=$GITHUB_WORKSPACE/docker-base
 
 repositories=(
   "lua:lua -v"
@@ -13,7 +12,7 @@ repositories=(
 for repository_config in "${repositories[@]}"; do
   repository=${repository_config%%:*}
   echo "Building images of ${repository}"
-  cd ${repository}
+  cd $DOCKER_BASE/${repository}
   versions=(*/)
   for version in "${versions[@]%/}"; do
     oses=($(ls ${version}))
@@ -24,5 +23,4 @@ for repository_config in "${repositories[@]}"; do
       docker run --rm ${image} ${repository_config#*:}
     done
   done
-  cd ${base}
 done

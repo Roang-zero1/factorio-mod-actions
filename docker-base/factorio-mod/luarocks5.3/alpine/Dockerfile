@@ -1,4 +1,4 @@
-FROM roangzero1/luarocks:lua5.3-alpine as base
+FROM docker.pkg.github.com/roang-zero1/factorio-mod-actions/luarocks:lua5.3-alpine as base
 
 LABEL "repository"="https://github.com/Roang-zero1/factorio-mod-actions"
 LABEL "homepage"="https://github.com/Roang-zero1/factorio-mod-actions"

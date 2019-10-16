@@ -1,5 +1,4 @@
-
-FROM roangzero1/lua:5.3-alpine
+FROM docker.pkg.github.com/roang-zero1/factorio-mod-actions/lua:5.3-alpine
 
 LABEL "repository"="https://github.com/Roang-zero1/factorio-mod-actions"
 LABEL "homepage"="https://github.com/Roang-zero1/factorio-mod-actions"

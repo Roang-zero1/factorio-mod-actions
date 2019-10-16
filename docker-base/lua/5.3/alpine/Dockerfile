@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.10
 
 LABEL "repository"="https://github.com/Roang-zero1/factorio-mod-actions"
 LABEL "homepage"="https://github.com/Roang-zero1/factorio-mod-actions"

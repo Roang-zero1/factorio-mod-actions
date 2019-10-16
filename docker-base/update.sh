@@ -10,6 +10,8 @@ repositories=(
   'factorio-mod:luacheck -v'
 )
 
+CONTAINERS=()
+
 for repository_config in "${repositories[@]}"; do
   repository=${repository_config%%:*}
   echo "Building images of ${repository}"
@@ -20,8 +22,9 @@ for repository_config in "${repositories[@]}"; do
     for os in "${oses[@]}"; do
       image=roangzero1/${repository}:${version}-${os}
       echo "building $image ..."
-      docker build -q -t ${image} -t docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/$repository:latest ${version}/${os}
+      docker build -q -t ${image} -t docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/${repository}${version}-${os} ${version}/${os}
       docker run --rm ${image} ${repository_config#*:} >/dev/null
+      CONTAINERS+=("docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/${repository}${version}-${os}")
     done
   done
 done
@@ -32,9 +35,9 @@ docker image ls
 if [ $PUBLISH_IMAGE == "true" ]; then
   echo "Publishing images to GPR"
   docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
-  for repository_config in "${repositories[@]}"; do
+  for container in "${CONTAINERS[@]}"; do
     repository=${repository_config%%:*}
-    docker push docker.pkg.github.com/$GITHUB_REPOSITORY_LOWER/$repository:latest
+    docker push $container
   done
 else
   echo "Not publishing images"

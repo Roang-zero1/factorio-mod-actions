@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@master
       - name: lint
         uses: Roang-zero1/factorio-mod-luacheck@master
-        env:
+        with:
           LUACHECKRC_URL: https://raw.githubusercontent.com/Nexela/Factorio-luacheckrc/0.17/.luacheckrc
   release-github:
     runs-on: ubuntu-latest

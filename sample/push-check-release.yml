@@ -41,6 +41,6 @@ jobs:
         uses: Roang-zero1/factorio-mod-package@master
       - name: Factorio release
         uses: Roang-zero1/factorio-create-release-action@master
-        env:
-          FACTORIO_PASSWORD: ${{ secrets.FACTORIO_PASSWORD }}
-          FACTORIO_USER: ${{ secrets.FACTORIO_USER }}
+        with:
+          factorio_password: ${{ secrets.FACTORIO_PASSWORD }}
+          factorio_user: ${{ secrets.FACTORIO_USER }}

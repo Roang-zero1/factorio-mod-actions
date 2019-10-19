@@ -6,12 +6,6 @@ This repository contains actions to test and deploy your Factorio mod with GitHu
 
 A [sample workflow](sample/push-check-release.yml) for checking and releasing a Factorio mod is included in this repository.
 
-## Deploy images
-
-```bash
-docker images --format "{{.Repository}}:{{.Tag}}" | awk '/roangzero1/ && !/none/' | tac | xargs -I {} docker push {}
-```
-
 ## Acknowledgements
 
 Docker files for Lua based on [akornatskyy/docker-library/](https://github.com/akornatskyy/docker-library/)
